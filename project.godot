@@ -11,13 +11,25 @@ config_version=5
 [application]
 
 config/name="NinjaFighters"
-config/features=PackedStringArray("4.0", "Mobile")
+run/main_scene="res://player.tscn"
+config/features=PackedStringArray("4.0", "C#", "Mobile")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=640
+window/size/viewport_height=360
 
 [dotnet]
 
 project/assembly_name="NinjaFighters"
 
+[editor]
+
+naming/scene_name_casing=1
+
 [rendering]
 
 renderer/rendering_method="mobile"
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true

@@ -1,6 +1,7 @@
-[gd_scene load_steps=54 format=3 uid="uid://b21yvmqdcoth0"]
+[gd_scene load_steps=56 format=3 uid="uid://b21yvmqdcoth0"]
 
 [ext_resource type="Texture2D" uid="uid://cybae6rn7tlre" path="res://assets/idle-Sheet.png" id="1_11nix"]
+[ext_resource type="Script" path="res://Player.cs" id="1_d7nmg"]
 [ext_resource type="Texture2D" uid="uid://cys8yev5ngbm1" path="res://assets/death-Sheet.png" id="1_h3x6n"]
 [ext_resource type="Texture2D" uid="uid://dwfoq3c3sjfmh" path="res://assets/hurt-Sheet.png" id="2_b84nh"]
 [ext_resource type="Texture2D" uid="uid://corx7q1ibsnhk" path="res://assets/long jump&fall anim-Sheet.png" id="4_7h0ay"]
@@ -359,9 +360,20 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ruklj"]
+size = Vector2(9, 16)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Player" type="Node2D"]
+position = Vector2(290, 216)
+script = ExtResource("1_d7nmg")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
 sprite_frames = SubResource("SpriteFrames_qlo7m")
-animation = &"sneak"
-frame_progress = 0.353686
+animation = &"idle"
+frame_progress = 0.979697
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1.5, 4)
+shape = SubResource("RectangleShape2D_ruklj")
