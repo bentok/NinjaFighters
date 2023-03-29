@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://b21yvmqdcoth0"]
+[gd_scene load_steps=62 format=3 uid="uid://b21yvmqdcoth0"]
 
 [ext_resource type="Texture2D" uid="uid://cybae6rn7tlre" path="res://assets/idle-Sheet.png" id="1_11nix"]
 [ext_resource type="Script" path="res://Player.cs" id="1_d7nmg"]
@@ -10,6 +10,14 @@
 [ext_resource type="Texture2D" uid="uid://vmxcdsnm5g10" path="res://assets/slash-Sheet.png" id="7_4xfm5"]
 [ext_resource type="Texture2D" uid="uid://biwm7n3kjwtiq" path="res://assets/sneaky walk-Sheet.png" id="8_6mpqs"]
 [ext_resource type="Texture2D" uid="uid://b3cc4slo5x7yd" path="res://assets/throw-Sheet.png" id="9_bhifs"]
+[ext_resource type="Texture2D" uid="uid://da3ij1ysnfmjt" path="res://assets/L1.png" id="11_u62l6"]
+[ext_resource type="Texture2D" uid="uid://op7qo4hyct1f" path="res://assets/L2.png" id="12_28luj"]
+[ext_resource type="Texture2D" uid="uid://b3qmwh0ctdlqo" path="res://assets/L3.png" id="13_vhdd0"]
+[ext_resource type="Texture2D" uid="uid://c1m5koouew842" path="res://assets/L4.png" id="14_ywwom"]
+[ext_resource type="Texture2D" uid="uid://cv0i6yinmp2cu" path="res://assets/L5.png" id="15_ac6dc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ruklj"]
+size = Vector2(19, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wbcs1"]
 atlas = ExtResource("1_h3x6n")
@@ -360,21 +368,54 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ruklj"]
-size = Vector2(19, 30)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5p3mn"]
+size = Vector2(631.5, 20)
 
-[node name="Player" type="Node2D"]
+[node name="Scene1" type="Node2D"]
 position = Vector2(290, 216)
+
+[node name="Player" type="CharacterBody2D" parent="."]
 script = ExtResource("1_d7nmg")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(4.5, 8)
+shape = SubResource("RectangleShape2D_ruklj")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_qlo7m")
 animation = &"idle"
 frame_progress = 0.208656
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(4.5, 8)
-shape = SubResource("RectangleShape2D_ruklj")
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="L1" type="Sprite2D" parent="ParallaxBackground"]
+position = Vector2(321, 190)
+scale = Vector2(0.328125, 0.348148)
+texture = ExtResource("11_u62l6")
+
+[node name="L2" type="Sprite2D" parent="ParallaxBackground"]
+position = Vector2(321, 188)
+scale = Vector2(0.330208, 0.346296)
+texture = ExtResource("12_28luj")
+
+[node name="L3" type="Sprite2D" parent="ParallaxBackground"]
+position = Vector2(322, 187)
+scale = Vector2(0.330208, 0.344444)
+texture = ExtResource("13_vhdd0")
+
+[node name="L4" type="Sprite2D" parent="ParallaxBackground"]
+position = Vector2(318, 190)
+scale = Vector2(0.329167, 0.35)
+texture = ExtResource("14_ywwom")
+
+[node name="L5" type="Sprite2D" parent="ParallaxBackground"]
+position = Vector2(317, 305)
+scale = Vector2(0.33125, 0.137037)
+texture = ExtResource("15_ac6dc")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(30.25, 152)
+shape = SubResource("RectangleShape2D_5p3mn")

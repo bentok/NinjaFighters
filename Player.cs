@@ -1,38 +1,54 @@
 using Godot;
 using System;
 
-public partial class Player : Node2D
+public partial class Player : CharacterBody2D
 {
-	[Export]
-	public float Speed = 2.00f;
-	
-	public Vector2 screensize = new Vector2(480.00f, 720.00f);
-	
-	
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-		GetNode<AnimatedSprite2D>("Area2D/AnimatedSprite2D").Play("idle");
-	}
+	public const float Speed = 300.0f;
+	public const float JumpVelocity = -400.0f;
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+	// Get the gravity from the project settings to be synced with RigidBody nodes.
+	public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
+
+	public override void _PhysicsProcess(double delta)
 	{
-		if (Input.IsActionPressed("ui_right"))
+		Vector2 velocity = Velocity;
+
+		// Add the gravity.
+		if (!IsOnFloor())
+			velocity.Y += gravity * (float)delta;
+
+		// Handle Jump.
+		if (Input.IsActionJustPressed("ui_accept") && IsOnFloor())
+			velocity.Y = JumpVelocity;
+
+		// Get the input direction and handle the movement/deceleration.
+		// As good practice, you should replace UI actions with custom gameplay actions.
+		Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
+		if (direction != Vector2.Zero)
 		{
-			Position += new Vector2(Speed, 0);
-			GetNode<AnimatedSprite2D>("Area2D/AnimatedSprite2D").Play("run");
-			GetNode<AnimatedSprite2D>("Area2D/AnimatedSprite2D").FlipH = false;
-		}
-		else if (Input.IsActionPressed("ui_left"))
-		{
-			Position += new Vector2(-Speed, 0);
-			GetNode<AnimatedSprite2D>("Area2D/AnimatedSprite2D").Play("run");
-			GetNode<AnimatedSprite2D>("Area2D/AnimatedSprite2D").FlipH = true;
+			velocity.X = direction.X * Speed;
 		}
 		else
 		{
-			GetNode<AnimatedSprite2D>("Area2D/AnimatedSprite2D").Play("idle");
+			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
 		}
+		
+		if (velocity.X > 0)
+		{
+			GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("run");
+			GetNode<AnimatedSprite2D>("AnimatedSprite2D").FlipH = false;
+		}
+		else if (velocity.X < 0)
+		{
+			GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("run");
+			GetNode<AnimatedSprite2D>("AnimatedSprite2D").FlipH = true;
+		}
+		else
+		{
+			GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("idle");
+		}
+
+		Velocity = velocity;
+		MoveAndSlide();
 	}
 }
