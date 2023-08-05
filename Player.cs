@@ -1,5 +1,7 @@
+namespace Player;
+
 using Godot;
-using System;
+
 
 public partial class Player : CharacterBody2D
 {
@@ -20,6 +22,8 @@ public partial class Player : CharacterBody2D
 		// Handle Jump.
 		if (Input.IsActionJustPressed("ui_accept") && IsOnFloor())
 			velocity.Y = JumpVelocity;
+		
+		AnimatedSprite2D animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 
 		// Get the input direction and handle the movement/deceleration.
 		// As good practice, you should replace UI actions with custom gameplay actions.
@@ -37,17 +41,17 @@ public partial class Player : CharacterBody2D
 		{
 			if (velocity.X > 0)
 			{
-				GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("run");
-				GetNode<AnimatedSprite2D>("AnimatedSprite2D").FlipH = false;
+				animatedSprite.Play("run");
+				animatedSprite.FlipH = false;
 			}
 			else if (velocity.X < 0)
 			{
-				GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("run");
-				GetNode<AnimatedSprite2D>("AnimatedSprite2D").FlipH = true;
+				animatedSprite.Play("run");
+				animatedSprite.FlipH = true;
 			}
 			else
 			{
-				GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("idle");
+				animatedSprite.Play("idle");
 			}	
 		}
 		
