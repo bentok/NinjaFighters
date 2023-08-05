@@ -33,22 +33,35 @@ public partial class Player : CharacterBody2D
 			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
 		}
 		
-		if (velocity.X > 0)
+		if (IsOnFloor())
 		{
-			GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("run");
-			GetNode<AnimatedSprite2D>("AnimatedSprite2D").FlipH = false;
+			if (velocity.X > 0)
+			{
+				GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("run");
+				GetNode<AnimatedSprite2D>("AnimatedSprite2D").FlipH = false;
+			}
+			else if (velocity.X < 0)
+			{
+				GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("run");
+				GetNode<AnimatedSprite2D>("AnimatedSprite2D").FlipH = true;
+			}
+			else
+			{
+				GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("idle");
+			}	
 		}
-		else if (velocity.X < 0)
+		
+		if (Input.IsActionJustPressed("attack"))
 		{
-			GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("run");
-			GetNode<AnimatedSprite2D>("AnimatedSprite2D").FlipH = true;
-		}
-		else
-		{
-			GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("idle");
+			Attack();
 		}
 
 		Velocity = velocity;
 		MoveAndSlide();
+	}
+	
+	public void Attack()
+	{
+		GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("slash");
 	}
 }

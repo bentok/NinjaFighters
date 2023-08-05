@@ -320,7 +320,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_n7gg8")
 }],
-"loop": true,
+"loop": false,
 "name": &"slash",
 "speed": 5.0
 }, {
@@ -384,8 +384,7 @@ shape = SubResource("RectangleShape2D_ruklj")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_qlo7m")
-animation = &"idle"
-frame_progress = 0.208656
+animation = &"slash"
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
