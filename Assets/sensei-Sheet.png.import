@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://biwm7n3kjwtiq"
-path="res://.godot/imported/sneaky walk-Sheet.png-860161dfc4fadfd86401a29c55aa83de.ctex"
+uid="uid://worp480ovvfx"
+path="res://.godot/imported/sensei-Sheet.png-7dd32cf8eac211f38edf891af9052c5e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sneaky walk-Sheet.png"
-dest_files=["res://.godot/imported/sneaky walk-Sheet.png-860161dfc4fadfd86401a29c55aa83de.ctex"]
+source_file="res://Assets/sensei-Sheet.png"
+dest_files=["res://.godot/imported/sensei-Sheet.png-7dd32cf8eac211f38edf891af9052c5e.ctex"]
 
 [params]
 

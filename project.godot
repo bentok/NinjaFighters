@@ -11,14 +11,18 @@ config_version=5
 [application]
 
 config/name="NinjaFighters"
-run/main_scene="res://player.tscn"
+run/main_scene="res://Scenes/Player/player.tscn"
 config/features=PackedStringArray("4.1", "C#", "Mobile")
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=640
-window/size/viewport_height=360
+window/size/viewport_width=320
+window/size/viewport_height=480
+window/size/mode=3
+window/size/resizable=false
+window/stretch/mode="viewport"
+window/handheld/orientation=1
 
 [dotnet]
 

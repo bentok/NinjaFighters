@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3qmwh0ctdlqo"
-path="res://.godot/imported/L3.png-63aa1a20c8fcacea3471f44cf4367c7e.ctex"
+uid="uid://dwfoq3c3sjfmh"
+path="res://.godot/imported/hurt-Sheet.png-aed315326a48589371b04981e78788a6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/L3.png"
-dest_files=["res://.godot/imported/L3.png-63aa1a20c8fcacea3471f44cf4367c7e.ctex"]
+source_file="res://Assets/hurt-Sheet.png"
+dest_files=["res://.godot/imported/hurt-Sheet.png-aed315326a48589371b04981e78788a6.ctex"]
 
 [params]
 

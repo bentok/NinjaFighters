@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mepdkwphuunt"
-path="res://.godot/imported/quick jump&fall anim-Sheet.png-049d4c2a1350bdefcefb1966ea1e9814.ctex"
+uid="uid://biwm7n3kjwtiq"
+path="res://.godot/imported/sneaky walk-Sheet.png-e098b81e763113419939fd4bacdd2eb3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/quick jump&fall anim-Sheet.png"
-dest_files=["res://.godot/imported/quick jump&fall anim-Sheet.png-049d4c2a1350bdefcefb1966ea1e9814.ctex"]
+source_file="res://Assets/sneaky walk-Sheet.png"
+dest_files=["res://.godot/imported/sneaky walk-Sheet.png-e098b81e763113419939fd4bacdd2eb3.ctex"]
 
 [params]
 

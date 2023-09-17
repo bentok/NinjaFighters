@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1m5koouew842"
-path="res://.godot/imported/L4.png-059bd8d00a5eca328ec186e299b179a0.ctex"
+uid="uid://b3cc4slo5x7yd"
+path="res://.godot/imported/throw-Sheet.png-8c46fe1aee2ad9ba66398a831ce0d7ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/L4.png"
-dest_files=["res://.godot/imported/L4.png-059bd8d00a5eca328ec186e299b179a0.ctex"]
+source_file="res://Assets/throw-Sheet.png"
+dest_files=["res://.godot/imported/throw-Sheet.png-8c46fe1aee2ad9ba66398a831ce0d7ba.ctex"]
 
 [params]
 
