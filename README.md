@@ -2,7 +2,7 @@
 
 Welcome to Ninja Platformer 2D, a captivating 2D platformer that draws you into a world of ninjas, mystery, and adventure. Crafted using the powerful Godot engine and .NET, the game offers an immersive experience that both challenges and delights.
 
-![Game Screenshot](screenshot.png)
+![Game Screenshot](assets/screenshot.png)
 
 ## Overview
 
